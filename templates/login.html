@@ -1,0 +1,38 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block auth_nav %}
+<a class="nav-link" href="/auth/register">Register</a>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-lg">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">Login</h2>
+                {% if request.query_params.error %}
+                    <div class="alert alert-danger">{{ request.query_params.error }}</div>
+                {% endif %}
+                {% if request.query_params.success %}
+                    <div class="alert alert-success">{{ request.query_params.success }}</div>
+                {% endif %}
+                <form method="post" action="/auth/login">
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-bold">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="/auth/register" class="btn btn-link">Create Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

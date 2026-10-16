@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}About - Bone Density Results{% endblock %}
+
+{% block nav_right %}
+<a class="nav-link" href="/bd/dashboard">Dashboard</a>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <h1 class="mb-4"><i class="bi bi-info-circle text-primary me-2"></i>Result Explanation</h1>
+        
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-rulers text-primary"></i> T-Score</h5>
+                        <p class="card-text"><strong>The key measure of bone density health</strong></p>
+                        <ul class="list-unstyled">
+                            <li><span class="badge bg-success me-2">≥ -1.0</span>Normal</li>
+                            <li><span class="badge bg-warning me-2"> -1.0 to -2.5</span>Osteopenia (Low bone mass)</li>
+                            <li><span class="badge bg-danger me-2"> ≤ -2.5</span>Osteoporosis</li>
+                        </ul>
+                        <p class="text-muted small mt-3">Comparison to young adult peak bone mass</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-person-lines-fill text-success"></i> BMI</h5>
+                        <p class="card-text"><strong>Body Mass Index (kg/m²)</strong></p>
+                        <ul class="list-unstyled">
+                            <li><span class="badge bg-light text-dark me-2"> < 18.5</span>Underweight</li>
+                            <li><span class="badge bg-info text-white me-2">18.5-24.9</span>Normal</li>
+                            <li><span class="badge bg-warning text-dark me-2">25-29.9</span>Overweight</li>
+                            <li><span class="badge bg-danger me-2">≥ 30</span>Obese</li>
+                        </ul>
+                        <p class="text-muted small mt-3">Height & weight based. Important for bone health assessment</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+    </div>
+</div>
+{% endblock %}

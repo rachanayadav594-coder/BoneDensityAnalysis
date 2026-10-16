@@ -1,0 +1,2 @@
+id,user_email,age,weight_kg,height_cm,gender,activity_level,t_score,bmi,interpretation,risk_category
+2,rachanayadav594@gmail.com,45,110.0,176.0,male,active,-1.92,35.5,Osteopenia,Bad

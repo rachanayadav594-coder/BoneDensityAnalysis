@@ -1,0 +1,32 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block auth_nav %}
+<a class="nav-link" href="/auth/login">Login</a>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-lg">
+            <div class="card-body p-4">
+                <h2 class="text-center mb-4">Create Account</h2>
+                <form method="post" action="/auth/register">
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label fw-bold">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Sign Up</button>
+                </form>
+                <div class="text-center mt-3">
+                    <a href="/auth/login" class="btn btn-link">Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Bone Density{% endblock %}
+
+{% block nav_right %}
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1><i class="bi bi-house-door text-primary me-2"></i>Dashboard</h1>
+            <a href="/bd/form" class="btn btn-primary me-2">
+                <i class="bi bi-plus-circle"></i> New Test
+            </a>
+            <a href="/bd/about" class="btn btn-outline-info">
+                <i class="bi bi-info-circle"></i> Results Guide
+            </a>
+        </div>
+    </div>
+</div>
+
+{% if last_result %}
+<!-- Result Display -->
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-5 text-center">
+                <h2 class="mb-4">Latest Result</h2>
+                {% set t_score = (last_result.t_score|default('0')|float)|round(2) %}
+                {% if t_score >= -1 %}
+                    <h1 class="display-3 text-success fw-bold mb-4">T-Score: {{ t_score }}</h1>
+                    <p class="lead text-success mb-4">Normal Bone Density</p>
+                {% elif t_score >= -2.5 %}
+                    <h1 class="display-3 text-warning fw-bold mb-4">T-Score: {{ t_score }}</h1>
+                    <p class="lead text-warning mb-4">Osteopenia (Low Bone Mass)</p>
+                {% else %}
+                    <h1 class="display-3 text-danger fw-bold mb-4">T-Score: {{ t_score }}</h1>
+                    <p class="lead text-danger mb-4">Osteoporosis</p>
+                {% endif %}
+                <div class="row mb-5 g-3">
+                    <div class="col-md-3">
+                        <div class="border p-3 rounded text-center h-100">
+                            <h6 class="text-muted">BMI</h6>
+                            <h4 class="text-primary fw-bold">{{ (last_result.bmi|default('0')|float)|round(1) }}</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border p-3 rounded text-center h-100">
+                            <h6 class="text-muted">Risk</h6>
+                            <h4 class="text-info fw-bold">{{ last_result.risk_category|default('N/A') }}</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border p-3 rounded text-center h-100">
+                            <h6 class="text-muted">Age</h6>
+                            <p class="mb-0 fw-bold fs-4">{{ last_result.age|default('N/A') }} yrs</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border p-3 rounded text-center h-100">
+                            <h6 class="text-muted">Weight</h6>
+                            <p class="mb-0 fw-bold fs-4">{{ (last_result.weight_kg|default('0')|float)|round(1) }} kg</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <small class="text-muted d-block mb-1">Height: {{ last_result.height_cm|default('N/A') }} cm</small>
+                    </div>
+                    <div class="col-md-6">
+                        <small class="text-muted d-block mb-1">Gender: {{ (last_result.gender|default('N/A'))|title }}</small>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<!-- No Result -->
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center py-5">
+        <i class="bi bi-graph-up-arrow display-1 text-muted mb-4"></i>
+        <h2 class="text-muted mb-3">No results yet</h2>
+        <p class="lead text-muted mb-4">Complete your first bone density test to see your T-Score and health insights.</p>
+       
+    </div>
+</div>
+{% endif %}
+{% endblock %}

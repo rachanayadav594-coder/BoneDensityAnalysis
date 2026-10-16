@@ -1,0 +1,154 @@
+/* Clean Medical App Theme - Simple & Professional */
+
+:root {
+  --primary: #2c5aa0;
+  --primary-light: #4a7ac6;
+  --success: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light-bg: #f8f9fa;
+  --card-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+  --border-radius: 0.5rem;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--light-bg);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: var(--primary) !important;
+  box-shadow: var(--card-shadow);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: -0.5px;
+}
+
+.navbar-brand i {
+  color: white;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--primary-light) !important;
+}
+
+.card {
+  border: none;
+  box-shadow: var(--card-shadow);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,0.15);
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.btn-outline-primary:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.form-control, .form-select {
+  border-radius: var(--border-radius);
+  border: 2px solid #e9ecef;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(44, 90, 160, 0.15);
+}
+
+.display-3, .display-4 {
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  letter-spacing: -1px;
+}
+
+.badge {
+  font-size: 0.85em;
+  padding: 0.5em 0.75em;
+}
+
+.list-group-item {
+  border: none;
+  padding: 0.75rem 1rem;
+}
+
+.alert {
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.bg-primary { background: var(--primary) !important; }
+.bg-gradient { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%) !important; }
+
+/* Utility */
+.text-primary { color: var(--primary) !important; }
+.shadow-sm { box-shadow: var(--card-shadow) !important; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+}
